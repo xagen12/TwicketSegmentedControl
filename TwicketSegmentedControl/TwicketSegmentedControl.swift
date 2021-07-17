@@ -227,6 +227,28 @@ open class TwicketSegmentedControl: UIControl {
         selectedContainerView.subviews.forEach { ($0 as? UILabel)?.font = font }
         backgroundView.subviews.forEach { ($0 as? UILabel)?.font = font }
     }
+    
+    open func updateSelectedTitle(existingText:String, newText:String) {
+        selectedContainerView.subviews.forEach {
+            if let selected = $0 as? UILabel {
+                if selected.text == existingText {
+                    selected.text = newText
+                }
+            }
+        }
+
+    }
+    
+    open func updateTitle(existingText:String, newText:String) {
+        backgroundView.subviews.forEach {
+            if let label = $0 as? UILabel {
+                if label.text == existingText {
+                    label.text = newText
+                }
+            }
+        }
+
+    }
 
     // MARK: Tap gestures
 
